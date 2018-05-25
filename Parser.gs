@@ -1,6 +1,9 @@
 // Generate all form options to a json file
 function generateFormData() {
-  var formId = 'xxxxxxxxxxxxx'; // Insert your form id here
+  var formId = '1RggzXqU33Zf3M6wXLX2X5rj41MHwh-OCgBsW62wfk2g'; // Insert your form id here
+  var outputDir = 'Labs'; // Insert your drive folder
+  var outputFilename = 'output.json'; // Insert your filename
+  
   var form = FormApp.openById(formId);
   var formData = {};
    
@@ -174,9 +177,9 @@ function generateFormData() {
     formData.items[sectionCount].push(item);
   }
 
-  var folder = getFolder('Labs');
+  var folder = getFolder(outputDir);
   if (folder != false) {
-    updateFile(folder, 'qdataviz.json', JSON.stringify(formData));
+    updateFile(folder, outputFilename, JSON.stringify(formData));
   }
 }
 
